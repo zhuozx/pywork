@@ -1,5 +1,4 @@
 import allure
-
 from test_selenium.page.main import Main
 
 
