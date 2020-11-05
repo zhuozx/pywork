@@ -48,7 +48,8 @@ class AddMember(BasePage):
 
         # 在弹窗中点击确定按钮
         self.find(By.XPATH, '//*[@class="qui_dialog_foot ww_dialog_foot"]/a[1]').click()
-
+        # 职务
+        self.find(By.ID,'memberAdd_title').send_keys('技术主管')
         # 身份选择上级
         self.find(By.CSS_SELECTOR, '[class="ww_radio js_identity_stat"]').click()
 
