@@ -6,10 +6,11 @@ from selenium.webdriver.common.by import By
 from test_selenium.page.base_page import BasePage
 from test_selenium.page.member_list import MemberList
 
-
+#添加成员页面
 class AddMember(BasePage):
     # 添加成员
     def add_member(self):
+        #随机一个数字，用于动态化姓名等
         num = random.randint(1, 99999)
         self.name = '名字' + str(num)
         # 姓名
