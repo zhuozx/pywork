@@ -27,7 +27,7 @@ class AddMember(BasePage):
         # 手机选择香港，并填写号码
         self.find(By.CSS_SELECTOR, '.ww_telInput_zipCode_input').click()
         self.find(By.CSS_SELECTOR, '[data-value="852"]').click()
-        self.find(By.ID, 'memberAdd_phone').send_keys(str(random.randint(11111111111,99999999999)))
+        self.find(By.ID, 'memberAdd_phone').send_keys('199'+str(random.randint(11111111,99999999)))
 
         # 座机
         self.find(By.ID, 'memberAdd_telephone').send_keys('020-'+str(random.randint(11111111,99999999)))
