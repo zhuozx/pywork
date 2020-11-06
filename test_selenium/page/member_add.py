@@ -5,21 +5,22 @@ from selenium.webdriver.common.by import By
 from test_selenium.page.base_page import BasePage
 from test_selenium.page.member_list import MemberList
 
-#添加成员页面
+
+# 添加成员页面
 class AddMember(BasePage):
     # 添加成员
     def add_member(self):
-        #随机一个数字，用于动态化姓名等
+        # 随机一个数字，用于动态化姓名等
         num = random.randint(1, 99999)
         self.name = '名字' + str(num)
         # 姓名
         self.find(By.ID, 'username').send_keys(self.name)
 
         # 别名
-        self.find(By.ID, 'memberAdd_english_name').send_keys('test' + str(random.randint(1, 99999)))
+        self.find(By.ID, 'memberAdd_english_name').send_keys('test' + str(num))
 
         # 帐号
-        self.find(By.ID, 'memberAdd_acctid').send_keys('ID' + str(random.randint(1, 99999)))
+        self.find(By.ID, 'memberAdd_acctid').send_keys('ID' + str(num))
 
         # 性别选女
         self.find(By.XPATH, '//*[@class="member_edit_formWrap "]/div[1]/div[3]/div[2]/label[2]').click()
@@ -27,13 +28,13 @@ class AddMember(BasePage):
         # 手机选择香港，并填写号码
         self.find(By.CSS_SELECTOR, '.ww_telInput_zipCode_input').click()
         self.find(By.CSS_SELECTOR, '[data-value="852"]').click()
-        self.find(By.ID, 'memberAdd_phone').send_keys('199'+str(random.randint(11111111,99999999)))
+        self.find(By.ID, 'memberAdd_phone').send_keys('199' + str(random.randint(11111111, 99999999)))
 
         # 座机
-        self.find(By.ID, 'memberAdd_telephone').send_keys('020-'+str(random.randint(11111111,99999999)))
+        self.find(By.ID, 'memberAdd_telephone').send_keys('020-' + str(random.randint(11111111, 99999999)))
 
         # 邮箱
-        self.find(By.ID, 'memberAdd_mail').send_keys(str(random.randint(1, 99999)) + '@qq.com')
+        self.find(By.ID, 'memberAdd_mail').send_keys(str(num) + '@qq.com')
 
         # 地址
         self.find(By.ID, 'memberEdit_address').send_keys("测试地址")
@@ -48,7 +49,7 @@ class AddMember(BasePage):
         # 在弹窗中点击确定按钮
         self.find(By.XPATH, '//*[@class="qui_dialog_foot ww_dialog_foot"]/a[1]').click()
         # 职务
-        self.find(By.ID,'memberAdd_title').send_keys('技术主管')
+        self.find(By.ID, 'memberAdd_title').send_keys('技术主管')
         # 身份选择上级
         self.find(By.CSS_SELECTOR, '[class="ww_radio js_identity_stat"]').click()
 
