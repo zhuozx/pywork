@@ -1,6 +1,7 @@
 import random
 
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
 
 from test_selenium.page.base_page import BasePage
 from test_selenium.page.member_list import MemberList
@@ -12,7 +13,7 @@ class AddMember(BasePage):
     def add_member(self):
         # 随机一个数字，用于动态化姓名等
         num = random.randint(1, 99999)
-        self.name = '名字' + str(num)
+        self.name = '卓' + str(num)
         # 姓名
         self.find(By.ID, 'username').send_keys(self.name)
 
@@ -44,14 +45,16 @@ class AddMember(BasePage):
         # 在弹窗中输入关键字搜索部门并选中
         self.find(By.CSS_SELECTOR, '.multiPickerDlg_search input').click()
         self.find(By.CSS_SELECTOR, '.multiPickerDlg_search input').send_keys("测试中心")
-        self.find(By.CSS_SELECTOR, '#searchResult li').click()
+        # 添加显示等待条件，等待查询结果出现后再点击
+        self.wait_for_click(By.CSS_SELECTOR, '#searchResult li').click()
+        # self.find(By.CSS_SELECTOR, '#searchResult li').click()
 
         # 在弹窗中点击确定按钮
         self.find(By.XPATH, '//*[@class="qui_dialog_foot ww_dialog_foot"]/a[1]').click()
         # 职务
         self.find(By.ID, 'memberAdd_title').send_keys('技术主管')
         # 身份选择上级
-        self.find(By.CSS_SELECTOR, '[class="ww_radio js_identity_stat"]').click()
+        self.find(By.CSS_SELECTOR, '.js_identity_stat').click()
 
         # 对外信息-职务，选自定义
         self.find(By.CSS_SELECTOR, '[value=custom]').click()
@@ -63,3 +66,20 @@ class AddMember(BasePage):
         # 点击页面底部的保存按钮
         self.find(By.XPATH, '//*[@class="js_member_editor_form"]/div[3]/a[2]').click()
         return MemberList(self.driver)
+
+    # 判断添加的名字是不是在列表中
+    def get_member_name(self, name):
+        self.driver.execute_script('document.documentElement.scrollTop=0')
+        while True:
+            elements = self.finds(By.XPATH, '//*[@id="member_list"]/tr/td[2]/span')
+            total_name = [element.text for element in elements]
+            # 如果匹配到姓名，则结束循环，返回True
+            if name in total_name:
+                return True
+            page_element: str = self.wait_for_click(By.CSS_SELECTOR, '.ww_pageNav_info_text').text
+            cur_page, total_page = page_element.split('/')
+            # 如果不是最后一页，则点击下一页按钮，否则返回false
+            if int(cur_page) == int(total_page):
+                return False
+            else:
+                self.find(By.CSS_SELECTOR, '.js_next_page').click()

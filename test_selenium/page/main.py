@@ -31,7 +31,8 @@ class Main(BasePage):
         # 滑动到页面底部
         self.driver.execute_script('document.documentElement.scrollTop=1000')
         # 点击添加成员按钮
-        self.find(By.CSS_SELECTOR, '.index_service_cnt_itemWrap:nth-child(1)').click()
+        self.wait_for_click(By.CSS_SELECTOR, '.index_service_cnt_itemWrap:nth-child(1)').click()
+        # self.find(By.CSS_SELECTOR, '.index_service_cnt_itemWrap:nth-child(1)').click()
         # 进入添加成员页面
         return AddMember(self.driver)
 
