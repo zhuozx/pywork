@@ -2,7 +2,6 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.remote.webdriver import WebDriver
 
-
 # 基础页面类
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
@@ -30,14 +29,10 @@ class BasePage:
         if self._base_url != '':
             self.driver.get(self._base_url)
 
-    # 封装元素定位方法
-    def find(self, by, locator):
-        return self.driver.find_element(by, locator)
-
-    # 封装查找一组元素
-    def finds(self, by, locator):
-        return self.driver.find_elements(by, locator)
+    # 封装元素定位方法 支持两种写法：1. find((by,locator))定位一组元素  2.find(by,locator)定位一个元素
+    def find(self, by, locator=None):
+        return self.driver.find_elements(*by) if isinstance(by, tuple) else self.driver.find_element(by, locator)
 
     # 点击元素的显示等待方法封装
-    def wait_for_click(self,by,locator,timeout=10):
-        return WebDriverWait(self.driver,timeout).until(expected_conditions.element_to_be_clickable((by,locator)))
+    def wait_for_click(self, by, locator, timeout=10):
+        return WebDriverWait(self.driver, timeout).until(expected_conditions.element_to_be_clickable((by, locator)))

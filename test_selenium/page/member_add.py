@@ -71,7 +71,7 @@ class AddMember(BasePage):
     def get_member_name(self, name):
         self.driver.execute_script('document.documentElement.scrollTop=0')
         while True:
-            elements = self.finds(By.XPATH, '//*[@id="member_list"]/tr/td[2]/span')
+            elements = self.find((By.XPATH, '//*[@id="member_list"]/tr/td[2]/span'))
             total_name = [element.text for element in elements]
             # 如果匹配到姓名，则结束循环，返回True
             if name in total_name:
