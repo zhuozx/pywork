@@ -1,0 +1,3 @@
+- by: id
+  locator: 'com.tencent.wework:id/cox'
+  action: click

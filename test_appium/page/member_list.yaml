@@ -1,0 +1,3 @@
+- by: -android uiautomator
+  locator: 'new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text("添加成员").instance(0));'
+  action: click
