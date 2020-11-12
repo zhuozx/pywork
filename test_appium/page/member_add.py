@@ -1,11 +1,10 @@
 from test_appium.page.basepage import BasePage
-from test_appium.page.member_list import MemberList
 
 
 class MemberAdd(BasePage):
+    # 添加成员页面
     def add_member(self, name, phone):
         self.params['name'] = name
         self.params['phone'] = phone
-        print(self.params)
-        self.steps('../page/member_add.yaml')
-        return MemberList(self.driver)
+        #打开yaml文件，并对add对应的value进行定位操作
+        self.steps('../page/member_add.yaml','add')

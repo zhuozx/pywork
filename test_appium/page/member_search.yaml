@@ -1,0 +1,13 @@
+key:
+  - by: id
+    locator: 'com.tencent.wework:id/gpg'
+    action: send
+    value: 'key'
+result:
+  - by: xpath
+    locator: '//*[contains(@text,"公司")]'
+    action: finds
+click:
+  - by: xpath
+    locator: '//*[contains(@text,"公司")]'
+    action: finds_click

@@ -1,0 +1,8 @@
+input:
+  - by: id
+    locator: 'com.tencent.wework:id/cox'
+    action: click
+getResult:
+  - by: xpath
+    locator: '//*[@class="android.widget.Toast"]'
+    action: getText

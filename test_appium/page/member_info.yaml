@@ -1,0 +1,4 @@
+menu:
+  - by: id
+    locator: 'com.tencent.wework:id/i6d'
+    action: click

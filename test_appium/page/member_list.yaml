@@ -1,3 +1,8 @@
-- by: -android uiautomator
-  locator: 'new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text("添加成员").instance(0));'
-  action: click
+addMemberBtn:
+  - by: -android uiautomator
+    locator: 'new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text("添加成员").instance(0));'
+    action: click
+search:
+  - by: id
+    locator: 'com.tencent.wework:id/i6n'
+    action: click

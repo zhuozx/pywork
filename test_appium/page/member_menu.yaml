@@ -1,0 +1,4 @@
+edit:
+  - by: id
+    locator: 'com.tencent.wework:id/b_x'
+    action: click

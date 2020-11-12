@@ -8,6 +8,7 @@ class App(BasePage):
     def start(self):
         _appPackage = 'com.tencent.wework'
         _appActivity = '.launch.LaunchSplashActivity'
+        # 如果当前driver为空，则初始化一个driver
         if self.driver == None:
             caps = {}
             caps['platformName'] = 'Android'
@@ -15,7 +16,7 @@ class App(BasePage):
             caps['appPackage'] = _appPackage
             caps['appActivity'] = _appActivity
             caps['noReset'] = 'true'
-            self.driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub',caps)
+            self.driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', caps)
             self.driver.implicitly_wait(10)
 
         return self
