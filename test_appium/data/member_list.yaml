@@ -6,3 +6,7 @@ search:
   - by: id
     locator: 'com.tencent.wework:id/i6n'
     action: click
+getMemberNum:
+  - by: -android uiautomator
+    locator: 'new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains("未加入").instance(0));'
+    action: getText

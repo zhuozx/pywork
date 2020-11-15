@@ -1,0 +1,22 @@
+add:
+  - by: xpath
+    locator: "//*[contains(@text,'姓名')]/../android.widget.EditText"
+    action: send
+    value: '{name}'
+
+  - by: xpath
+    locator: "//*[contains(@text,'性别')]/../android.widget.RelativeLayout"
+    action: click
+
+  - by: xpath
+    locator: "//*[contains(@text,'女')]"
+    action: click
+
+  - by: xpath
+    locator: "//*[@text='手机号']"
+    action: send
+    value: '{phone}'
+
+  - by: xpath
+    locator: "//*[@text='保存']"
+    action: click

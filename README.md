@@ -1,5 +1,5 @@
 # 作业
-appium直播一作业：/test_appium
+appium直播一/二作业：/test_appium
 
 selenium直播一/二作业：/test_selenium
 

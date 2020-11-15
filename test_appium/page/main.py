@@ -3,7 +3,7 @@ from test_appium.page.member_list import MemberList
 
 
 class Main(BasePage):
-    # 跳转到通讯录页面
+    # 从首页进入通讯录页面
     def goto_contact(self):
-        self.steps('../page/main.yaml','contact')
+        self.steps('../data/main.yaml', 'contact')
         return MemberList(self.driver)
