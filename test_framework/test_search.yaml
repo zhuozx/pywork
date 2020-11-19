@@ -1,0 +1,17 @@
+browser: chrome
+url: https://ceshiren.com
+testdata:
+    - appium
+    - selenium
+    - requests
+steps:
+  - by: id
+    locator: search-button
+    action: click
+  - by: id
+    locator: search-term
+    action: send
+    value: ${keyword}
+  - by: css selector
+    locator: .main-results
+    action: click
