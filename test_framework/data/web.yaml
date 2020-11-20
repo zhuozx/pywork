@@ -1,0 +1,4 @@
+# way:1表示打开新的浏览器；2表示复用现有浏览器
+browser: chrome
+way: 2
+url: https://ceshiren.com

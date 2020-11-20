@@ -1,5 +1,3 @@
-browser: chrome
-url: https://ceshiren.com
 testdata:
     - appium
     - selenium
@@ -14,4 +12,4 @@ steps:
     value: ${keyword}
   - by: css selector
     locator: .main-results
-    action: click
+    action: get
