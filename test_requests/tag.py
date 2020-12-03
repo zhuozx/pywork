@@ -17,7 +17,7 @@ class Tag:
         )
         self.token = r.json()['access_token']
 
-    def list(self,tag_id = None):
+    def list(self, tag_id=None):
         r = requests.post(
             'https://qyapi.weixin.qq.com/cgi-bin/externalcontact/get_corp_tag_list',
             params={'access_token': self.token},
@@ -29,7 +29,7 @@ class Tag:
         return r
 
     def add(self, group_name, tags):
-        tag = [{'name':tag} for tag in tags]
+        tag = [{'name': tag} for tag in tags]
         r = requests.post(
             'https://qyapi.weixin.qq.com/cgi-bin/externalcontact/add_corp_tag',
             params={'access_token': self.token},
@@ -40,7 +40,6 @@ class Tag:
         )
         print(json.dumps(r.json(), indent=2))
         return r
-
 
     def delete(self, group_id):
         r = requests.post(
