@@ -1,6 +1,7 @@
 import allure
 import pytest
-from test_api.tag import Tag
+
+from test_requests.tag import Tag
 
 data = {
     'normal': [
