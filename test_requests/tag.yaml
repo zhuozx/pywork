@@ -1,0 +1,12 @@
+normal:
+  - - group_name1
+    - - tag_name1
+      - tag_name2
+  - - group_name2
+    - - tag_nameA
+      - tag_nameB
+fail:
+  - - group_name3
+    - - tag_nameeeeeeeeeeeeeeeeeeeeeeeee
+  - - group_nameeeeeeeeeeeeeeeeeeeeee
+    - - tag_nameC
