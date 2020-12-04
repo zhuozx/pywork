@@ -63,7 +63,7 @@ class TestTag:
             r = self.tag.list(tag_id)
             assert r.status_code == 200
             assert r.json()['errcode'] == 0
-            # 使用jsonpath取到所有id值，如果获取的结果是测试数据tag_id的子集，则表示成功查询到了标签
+            # 使用jsonpath取到所有id值，如果获取的结果和测试数据tag_id是一样的，则表示成功查询到了标签
             assert not set(tag_id) - set(jsonpath(r.json(), '$..id'))
         else:
             print('没有可查询的标签')
