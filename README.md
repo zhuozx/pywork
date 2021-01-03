@@ -1,4 +1,6 @@
 # 作业
+测试平台直播一作业：/platform
+
 接口测试直播一作业：/test_requests
 
 测试框架直播一作业：/test_framework
